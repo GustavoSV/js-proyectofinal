@@ -4,7 +4,14 @@
     box-sizing: border-box;
 }
 
+.usuarioLogin {
+    margin-right: 10px;
+    background-color: white;
+    color: blue;
+}
+
 .portada {
+    padding: 20px;
     background-color: rgb(207, 252, 250);
 }
 
@@ -45,4 +52,54 @@
 .guardar-capturar-nota {
     margin-left: 10px;
     margin-top: 20px;
+}
+
+/* ALUMNOS */
+.noExiste {
+    height: 100vh;
+    background-color: lightblue;
+    padding: 20px;
+    gap: 30px;
+}
+
+.informacionAlumno {
+    background-color: aliceblue;
+    padding: 20px;
+}
+
+/* LOGIN */
+
+.bodyLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formularioLogin {
+    padding: 20px;
+    height: 430px;
+    width: 80vh;
+    max-width: 600px;
+    background-color: antiquewhite;
+}
+
+.buttonAgregarUsuario {
+    margin-top: 20px;
+}
+
+/* NUEVO */
+
+.lineaInicial {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.formularioIngreso {
+    padding: 30px;
+    background-color: antiquewhite;
+}
+.tipoUsuarioRadiobutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

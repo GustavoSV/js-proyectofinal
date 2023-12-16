@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap INI -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <!-- Bootstrap FIN -->
+    <!-- Sweetalert2 INI -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
+    <!-- Sweetalert2 FIN -->
+    <link rel="shortcut icon" href="./img/book-favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="estilos.css">
+    <title>MyLS Login</title>
+</head>
+<body class="container bodyLogin">
+    <div class="formularioLogin">
+        <div class="lineaInicial">
+            <a class="navbar-brand" href="./index.html">
+                <img src="./img/book-favicon.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                My Little School</a>
+            <h2>Iniciar sesión</h2>
+            <a href="nuevo.html" class="btn btn-secondary buttonRegistro" id="botonIngresar">Registrarse</a>
+        </div>
+        <div class="p-5">
+            <form class="p-3">
+                <div class="mb-3">
+                    <label for="usuarioNombre" class="col-form-label">Nombre Usuario</label>
+                    <input type="text" class="form-control" id="usuarioNombre">
+                </div>
+                <div class="mb-3">
+                    <label for="usuarioClave" class="col-form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="usuarioClave">
+                </div>
+                <button id="botonAgregarUsuario" type="button" class="btn btn-primary botonAgregarUsuario">Ingresar</button>
+                <div id="usuarioHint" class="form-text text-bg-danger"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- script BOOSTRAP INI -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    </script>
+    <!-- script BOOSTRAP FIN -->
+    <!-- Sweetalert2 INI -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+    <!-- Sweetalert2 FIN -->
+    <script src="login.js"></script>
+</body>
+</html>
