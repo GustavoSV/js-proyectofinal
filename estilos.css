@@ -12,11 +12,11 @@
 
 .portada {
     padding: 20px;
-    background-color: rgb(207, 252, 250);
+    background-color: #f0f8ff;
 }
 
 .carrusel {
-    background-color: rgb(205, 222, 237);
+    background-color: #e0f7ff;
     padding: 20px;
 }
 .textoBlanco {
@@ -57,14 +57,77 @@
 /* ALUMNOS */
 .noExiste {
     height: 100vh;
-    background-color: lightblue;
+    background-color: #add8e6;
     padding: 20px;
     gap: 30px;
 }
 
-.informacionAlumno {
-    background-color: aliceblue;
+.alumnoLogueado {
     padding: 20px;
+}
+
+.informacionAlumno {
+    padding: 20px;
+}
+
+.h4Label {
+    margin: 30px;
+    color: blue;
+}
+
+#comprarCursos {
+    padding-top: 30px;
+    background-color: #e0f7ff;
+}
+
+.moneda {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.labelMonedaPago {
+    margin-right: 10px;
+}
+
+.encabezadoComprarCursos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.botonCarrito {
+    padding: 10px;
+}
+.iconoCarrito {
+    margin: 10px;
+}
+
+/* CARRITO */
+#contenedorVacio {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    background-color: #f0f8ff;
+}
+
+#contenedorCarrito {
+    padding: 30px;
+    background-color: #f0f8ff;
+}
+
+#resumenCarrito {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0f7ff;
+}
+
+.buttonPagar {
+    margin-top: 20px;
 }
 
 /* LOGIN */

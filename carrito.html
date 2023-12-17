@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="./img/book-favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="estilos.css">
-    <title>MyLS Alumnos</title>
+    <title>Carrito de compras</title>
 </head>
 <body>
     <!-- Barra de navegacion INI -->
@@ -53,75 +53,23 @@
         </div>
     </nav>
     <!-- Barra de navegación FIN -->
-    <!-- bloque usado para cuando el usuario no se ha logueado -->
-    <div class="container d-flex flex-column justify-content-center align-items-center noExiste d-none" id="noHayIngreso">
-        <h2>Hola, no te has inscrito?</h2>
-        <h3>o no te has logueado? 🤔</h3>
-        <h4>escoje la que más se ajuste a tu realidad ... 😀</h4>
-        <a href="nuevo.html?tipo=alumno" class="btn btn-primary btn-lg botonNuevoAlumno" id="botonNuevoAlumno">Nuevo alumno</a>
-        <a href="login.html" class="btn btn-secondary btn-lg botonIngresarAlumno" id="botonIngresarAlumno">Ingresar</a>
-    </div>
-    <!-- FIN -->
 
-    <!-- Usuario alumno logueado INI -->
-    <div class="container informacionAlumno alumnoLogueado" id="tablaAlumnoLogueado">
-        <h2 id="tituloAlumnoLogueado">Información del Alumno</h2>
-        <table class="table table-success table-striped m-2" id="tablaNotasAlumno">
-            <thead>
-                <tr>
-                    <th scope="col">Cursada</th>
-                    <th scope="col">Fecha Ingreso</th>
-                    <th scope="col">Vr pagado</th>
-                    <th scope="col">Moneda</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody id="filasTablaNotasAlumno">
-                <!-- <tr>
-                    <th scope="row">Matemáticas</th>
-                    <td>23/08/2023</td>
-                    <td>12000</td>
-                    <td>PESOS</td>
-                    <td><a href="#eliminarCurso" class="btn btn-outline-primary btn-sm botonEliminar" id="MAT">Eliminar Curso</a></td> 
-                </tr>
-                <tr>
-                    <th scope="row">Historia</th>
-                    <td>18/05/2023</td>
-                    <td>18500</td>
-                    <td>DOLAR</td>
-                    <td><a href="#eliminarCurso" class="btn btn-outline-primary btn-sm botonEliminar" id="HIS">Eliminar Curso</a></td>
-                </tr> -->
-            </tbody>
-        </table>
+    <div class="container carritoVacio" id="contenedorVacio">
+        <h2>El carrito está vacío</h2>
     </div>
-    <!-- Usuario alumno logueado FIN -->
-
-    <!-- Alumno logueado - compra de cursos INI -->
-    <div class="container alumnoLogueado" id="comprarCursos">
+    <div class="container carritoContenido" id="contenedorCarrito">
         <div class="encabezadoComprarCursos">
-            <h2>Seleccione las cursadas a las que quieres ingresar</h2>
-            <a class="botonCarrito" href="carrito.html" id="nroCursosCarrito"><i class="bi bi-cart3 iconoCarrito"></i>0</a>
+            <h2>Cursadas en el carrito</h2>
         </div>
-        <div class="moneda">
-            <label class="col-form-label labelMonedaPago">Deseas pagar en</label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pagoPesos" value="PESOS" checked>
-                <label class="form-check-label" for="inlineRadio1">Pesos</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pagoDolar" value="DOLAR">
-                <label class="form-check-label" for="inlineRadio2">Dolares</label>
-            </div>
-        </div>
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="cursosDisponiblesAlumno">
-            <!-- <div class="col">
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="cardsCursosCarrito">
+            <div class="col">
                 <div class="card h-100">
                     <img src="./img/Arte-1.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h4 class="card-title">Arte</h4>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         <h5 class="precioCursada">$12,500</h5>
-                        <button type="button" class="btn btn-primary buttonAgregarCursada">Agregar</button>
+                        <button type="button" class="btn btn-outline-danger buttonEliminarCarrito">Eliminar</button>
                     </div>
                 </div>
             </div>
@@ -132,14 +80,19 @@
                         <h4 class="card-title">Ciencias</h4>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         <h5 class="precioCursada">$12,500</h5>
-                        <button type="button" class="btn btn-primary buttonAgregarCursada">Agregar</button>
+                        <button type="button" class="btn btn-outline-danger buttonEliminarCarrito">Eliminar</button>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
-    <!-- Alumno logueado - compra de cursos FIN -->
-    
+    <div class="container carritoContenido" id="resumenCarrito">
+        <h3>Total a pagar</h3>
+        <h4 id="totalPagar">$23,000</h4>
+        <button type="button" class="btn btn-primary" id="buttonPagar">Finalizar compra</button>
+    </div>
+
+
     <!-- script BOOSTRAP INI -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
@@ -148,6 +101,6 @@
     <!-- Sweetalert2 INI -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
     <!-- Sweetalert2 FIN -->
-    <script src="alumno.js"></script>
+    <script src="carrito.js"></script>
 </body>
 </html>

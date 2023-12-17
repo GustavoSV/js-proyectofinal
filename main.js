@@ -14,7 +14,7 @@ class Cursada {
     }
 }
 
-const cursada1 = new Cursada("HST", "Historia Post Moderna", "La posmodernidad es un movimiento cultural y filosófico que influenció las artes y el pensamiento crítico a partir de 1960 hasta la actualidad", "./img/Historia.jpg", 6, 12000, "textoBlanco");
+const cursada1 = new Cursada("HST", "Historia Post Moderna", "La posmodernidad es un movimiento cultural y filosófico que influenció las artes y el pensamiento crítico a partir de 1960 hasta la actualidad", "./img/Historia.jpg", 6, 13500, "textoBlanco");
 const cursada2 = new Cursada("MTM", "Matemática avanzada", "Las matemáticas avanzadas incluyen una amplia gama de temas, como lo son álgebra abstracta, análisis matemático, geometría diferencial, teoría de grupos y teoría de números", "./img/Matematicas.jpg",  10, 18500, "textoNegro");
 const cursada3 = new Cursada("ART", "Arte clásico", "Contempla el estilo artístico que floreció en la antigua Grecia y Roma, caracterizado por la búsqueda de la armonía, la proporción y la perfección estética", "./img/Arte.jpg",  9, 15000, "textoBlanco");
 const cursada4 = new Cursada("FIL", "Filosofía", "Es el estudio de problemáticas diversas como son el conocimiento, la mente, la consciencia, la ética, el lenguaje, la belleza y la moral", "./img/Filosofia.jpg",  10, 18500, "textoBlanco");
@@ -34,54 +34,7 @@ cursadasOrden.sort((curso1, curso2) => {
         return 0
     }
 });
-
-let alumnos = [
-    {
-        "idAlumno": 1,
-        "nombreAlumno": "Juan",
-        "sexo": "M",
-        "edad": 20,
-        "contraseña": "123"
-    },
-    {
-        "idAlumno": 2,
-        "nombreAlumno": "Maria",
-        "sexo": "F",
-        "edad": 23,
-        "contraseña": "123"
-    },
-    {
-        "idAlumno": 3,
-        "nombreAlumno": "Gustavo",
-        "sexo": "M",
-        "edad": 27,
-        "contraseña": "123"
-    }
-];
-
-let profesores = [
-    {
-        "idProfesor": 1,
-        "nombreProfesor": "Carlos",
-        "contraseña": "123"
-    }
-]
-
-let notasxAlumno = [
-    {
-        "codigoCursada": "HST",
-        "idAlumno": 1,
-        "fechaIngreso": "20/08/2023",
-        "nota1": 10,
-        "nota2": 9,
-        "nota3": 8
-    }
-]
-
 localStorage.setItem("cursadasLS", JSON.stringify(cursadasOrden));
-localStorage.setItem("alumnosLS", JSON.stringify(alumnos));
-localStorage.setItem("profesoresLS", JSON.stringify(profesores));
-localStorage.setItem("notasxAlumnoLS", JSON.stringify(notasxAlumno));
 
 let usuarioActual = {
     "idUsuario": 0,
@@ -89,7 +42,86 @@ let usuarioActual = {
     "tipoUsuario": "" // AL=alumno PR=profesor
 }
 
+let alumnos;
+let alumnosLS = localStorage.getItem("alumnosLS");
+if (alumnosLS) {
+    alumnos = JSON.parse(alumnosLS);
+} else {
+    alumnos = 
+    [
+        {
+            "idAlumno": 1,
+            "nombreAlumno": "Juan",
+            "sexo": "M",
+            "edad": 20,
+            "contraseña": "123"
+        },
+        {
+            "idAlumno": 2,
+            "nombreAlumno": "Maria",
+            "sexo": "F",
+            "edad": 23,
+            "contraseña": "123"
+        },
+        {
+            "idAlumno": 3,
+            "nombreAlumno": "Gustavo",
+            "sexo": "M",
+            "edad": 27,
+            "contraseña": "123"
+        }
+    ];
+    localStorage.setItem("alumnosLS", JSON.stringify(alumnos));
+}
+
+let profesores;
+let profesoresLS = localStorage.getItem("profesoresLS");
+if (profesoresLS) {
+    profesores = JSON.parse(profesoresLS);
+} else {
+    profesores = 
+    [
+        {
+            "idProfesor": 1,
+            "nombreProfesor": "Carlos",
+            "contraseña": "123"
+        }
+    ];
+    localStorage.setItem("profesoresLS", JSON.stringify(profesores));
+}
+
+let notasxAlumno;
+let notasxAlumnoLS = localStorage.getItem("notasxAlumnoLS");
+if (notasxAlumnoLS) {
+    notasxAlumno = JSON.parse(notasxAlumnoLS);
+} else {
+    notasxAlumno = 
+    [
+        {
+            "codigoCursada": "HST",
+            "idAlumno": 1,
+            "nota1": 10,
+            "nota2": 9,
+            "nota3": 8,
+            "fechaIngreso": "20/08/2023",
+            "vrPagado": 12000,
+            "moneda": "PESOS" // PESOS-DOLAR
+        }
+    ];
+    localStorage.setItem("notasxAlumnoLS", JSON.stringify(notasxAlumno));
+}
+
+let cursosCarrito;
+let cursosCarritoSS = sessionStorage.getItem("cursosCarritoSS");
+if (cursosCarritoSS) {
+    cursosCarrito = JSON.parse(cursosCarritoSS);
+} else {
+    cursosCarrito = [];
+    sessionStorage.setItem("cursosCarritoSS", JSON.stringify(cursosCarrito));
+}
+
 const labelUsuarioLogin = document.getElementById("usuarioLogin");
+
 let usuarioActualSS = sessionStorage.getItem("usuarioActualSS");
 if (usuarioActualSS) {
     usuarioActual = JSON.parse(usuarioActualSS);
