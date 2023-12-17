@@ -90,10 +90,10 @@ function cargarCursosCarrito() {
         if (i > -1) {
             precio = cursosUsuario[i].vrPagado;
             totalCarrito += precio;
-            if (cursosUsuario[i].moneda = "PESOS") {
+            if (cursosUsuario[i].moneda == "PESOS") {
                 simboloMoneda = "$";
                 precio = precio.toFixed(0);
-            } else if (cursosUsuario[i].moneda = "DOLAR") {
+            } else if (cursosUsuario[i].moneda == "DOLAR") {
                 simboloMoneda = "USD";
                 precio = precio.toFixed(2);
             } else {
@@ -114,7 +114,13 @@ function cargarCursosCarrito() {
             cardsCursosCarrito.appendChild(filaC);
         } 
     }
+    if (simboloMoneda == "USD") {
+        totalCarrito = totalCarrito.toFixed(2);
+    } else {
+        totalCarrito = totalCarrito.toFixed(0);
+    }
     totalPagar.innerText = `${simboloMoneda} ${totalCarrito}`;
+    
     cargarBotonEliminar();
 }
 
