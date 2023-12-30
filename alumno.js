@@ -39,6 +39,7 @@ let alumnoLogueado = false;
 let usuarioActual;
 const seccionNoHayIngreso = document.getElementById("noHayIngreso");
 const seccionesAlumnoLogueado = document.getElementsByClassName("alumnoLogueado");
+const tablaNotasAlumno = document.getElementById("tablaNotasAlumno");
 
 const tablaCursosAlumnoHTML = 
     `<thead>
@@ -115,8 +116,7 @@ function cargarBotonEliminar() {
 }
 
 function eliminarNotasxAlumno(index) {
-    const tabla = document.getElementById("tablaNotasAlumno");
-    tabla.deleteRow(index);
+    cargarTablaNotasAlumno();
 }
 
 function cargarBotonAgregar() {
@@ -241,44 +241,52 @@ function cargarCursosDisponiblesAlumno() {
     cargarBotonAgregar();
 }
 
+function cargarTablaNotasAlumno() {
+    const cursosAlumno =  notasxAlumno.filter((curso) => curso.idAlumno == usuarioActual.idUsuario);
+    // limpiamos la tabla de notas del alumno
+    tablaNotasAlumno.innerHTML = "";
+
+    // cargamos la tabla con las notas
+    tablaNotasAlumno.innerHTML = tablaCursosAlumnoHTML;
+    let nombreCurso = "";
+    const filasTablaNotasAlumno = document.getElementById("filasTablaNotasAlumno");
+    for (const curso of cursosAlumno) {
+        i = cursadas.findIndex((cursoD) => cursoD.codigoCursada == curso.codigoCursada);
+        if (i > -1) {
+            nombreCurso = cursadas[i].nombreCursada;
+        } else {
+            nombreCurso = "ERROR no se encontró";
+        }
+        let fila = document.createElement("tr");
+        fila.innerHTML =
+            `<th scope="row">${nombreCurso}</th>
+            <td>${curso.fechaIngreso}</td>
+            <td>${curso.vrPagado}</td>
+            <td>${curso.moneda}</td>
+            <td><a href="#eliminarCurso" class="btn btn-outline-primary btn-sm botonEliminar" id="${curso.codigoCursada}">Eliminar Curso</a></td>`;
+        filasTablaNotasAlumno.appendChild(fila);
+    }
+    cargarBotonEliminar();
+}
+
 // se carga la información SOLO cuando tenemos un ALUMNO logueado
 if (alumnoLogueado == true) {
     let tituloAlumnoLogueado = document.getElementById("tituloAlumnoLogueado");
     tituloAlumnoLogueado.innerText = "Información del Alumno " + usuarioActual.nombreUsuario;
-
-    // limpiamos la tabla de notas del alumno
-    const tablaNotasAlumno = document.getElementById("tablaNotasAlumno");
-    tablaNotasAlumno.innerHTML = "";
     
-    const cursosAlumno =  notasxAlumno.filter((curso) => curso.idAlumno == usuarioActual.idUsuario);
-    if (cursosAlumno.length == 0) {
+    // cursosAlumno =  notasxAlumno.filter((curso) => curso.idAlumno == usuarioActual.idUsuario);
+    i = notasxAlumno.findIndex((curso) => curso.idAlumno == usuarioActual.idUsuario);
+    if (i < 0) {
+        // limpiamos la tabla de notas del alumno
+        tablaNotasAlumno.innerHTML = "";
+
         const h4Label = document.createElement("h4");
         h4Label.classList.add("h4Label");
         h4Label.innerText = `El Alumno ${usuarioActual.nombreUsuario} NO está inscrito en ninguna cursada`;
         const tablaAlumnoLogueado = document.getElementById("tablaAlumnoLogueado");
         tablaAlumnoLogueado.appendChild(h4Label);
     } else {
-        // cargamos la tabla con las notas
-        tablaNotasAlumno.innerHTML = tablaCursosAlumnoHTML;
-        let nombreCurso = "";
-        const filasTablaNotasAlumno = document.getElementById("filasTablaNotasAlumno");
-        for (const curso of cursosAlumno) {
-            i = cursadas.findIndex((cursoD) => cursoD.codigoCursada == curso.codigoCursada);
-            if (i > -1) {
-                nombreCurso = cursadas[i].nombreCursada;
-            } else {
-                nombreCurso = "ERROR no se encontró";
-            }
-            let fila = document.createElement("tr");
-            fila.innerHTML =
-                `<th scope="row">${nombreCurso}</th>
-                <td>${curso.fechaIngreso}</td>
-                <td>${curso.vrPagado}</td>
-                <td>${curso.moneda}</td>
-                <td><a href="#eliminarCurso" class="btn btn-outline-primary btn-sm botonEliminar" id="${curso.codigoCursada}">Eliminar Curso</a></td>`;
-            filasTablaNotasAlumno.appendChild(fila);
-        }
-        cargarBotonEliminar();
+        cargarTablaNotasAlumno();
     }
     // cargamos los cursos disponibles para el Alumno, solo aparecen los que no ha tomado
     cargarCursosDisponiblesAlumno();

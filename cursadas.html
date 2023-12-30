@@ -7,6 +7,9 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
         <!-- Bootstrap FIN -->
+        <!-- Sweetalert2 INI -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
+        <!-- Sweetalert2 FIN -->
         <link rel="shortcut icon" href="./img/book-favicon.svg" type="image/x-icon">
         <link rel="stylesheet" href="estilos.css">
         <title>MyLS Cursadas</title>
@@ -50,136 +53,77 @@
     </nav>
     <!-- Barra de navegación FIN -->
 
-    <div class="container-sm cursadas">
+    <!-- bloque usado para cuando el usuario no se ha logueado -->
+    <div class="container d-flex flex-column justify-content-center align-items-center noExiste d-none" id="noHayIngreso">
+        <h2>Hola, no te has inscrito?</h2>
+        <h3>o no te has logueado? 🤔</h3>
+        <h4>escoje la que más se ajuste a tu realidad ... 😀</h4>
+        <a href="nuevo.html?tipo=alumno" class="btn btn-primary btn-lg botonNuevoAlumno" id="botonNuevoAlumno">Nuevo alumno</a>
+        <a href="nuevo.html?tipo=profesor" class="btn btn-primary btn-lg botonNuevoProfesor" id="botonNuevoProfesor">Nuevo profesor</a>
+        <a href="login.html" class="btn btn-secondary btn-lg botonIngresarAlumno" id="botonIngresarAlumno">Ingresar</a>
+    </div>
+    <!-- FIN -->
+
+    <!-- Acordeon NOTAS -->
+    <div class="container-sm cursadas hayIngreso">
         <div class="cursadas-titulo">
             <h2>Cursadas</h2>
-            <button type="button" class="btn btn-primary">Agregar Nota</button>
+            <button type="button" class="btn btn-primary" id="botonAgregarNota">Agregar Nota</button>
         </div>
-        <div class="cursadas-acordion">
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Historia
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <table class="table table-success table-striped m-2">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Alumno</th>
-                                        <th scope="col">Nota 1</th>
-                                        <th scope="col">Nota 2</th>
-                                        <th scope="col">Nota 3</th>
-                                        <th scope="col">Aprobado?</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tabla-cursadas">
-                                    <tr>
-                                        <th scope="row">Pedro</th>
-                                        <td>8.5</td>
-                                        <td>6.7</td>
-                                        <td>9</td>
-                                        <td>SI</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">María</th>
-                                        <td>8.5</td>
-                                        <td>6.7</td>
-                                        <td>9</td>
-                                        <td>NO</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Matemáticas
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <table class="table table-success table-striped m-2">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Alumno</th>
-                                        <th scope="col">Nota 1</th>
-                                        <th scope="col">Nota 2</th>
-                                        <th scope="col">Nota 3</th>
-                                        <th scope="col">Aprobado?</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tabla-cursadas">
-                                    <tr>
-                                        <th scope="row">Pedro</th>
-                                        <td>8.5</td>
-                                        <td>6.7</td>
-                                        <td>9</td>
-                                        <td>SI</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">María</th>
-                                        <td>8.5</td>
-                                        <td>6.7</td>
-                                        <td>9</td>
-                                        <td>NO</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Ciencias
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <table class="table table-success table-striped m-2">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Alumno</th>
-                                        <th scope="col">Nota 1</th>
-                                        <th scope="col">Nota 2</th>
-                                        <th scope="col">Nota 3</th>
-                                        <th scope="col">Aprobado?</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tabla-cursadas">
-                                    <tr>
-                                        <th scope="row">Pedro</th>
-                                        <td>8.5</td>
-                                        <td>6.7</td>
-                                        <td>9</td>
-                                        <td>SI</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">María</th>
-                                        <td>8.5</td>
-                                        <td>6.7</td>
-                                        <td>9</td>
-                                        <td>NO</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+        <!-- prueba de código INI -->
+        <div class="accordion" id="acordeonCursadas">
+
+        </div>
+        <!-- prueba de código FIN -->
+
+        <!-- <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Historia
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+xxxxxxxxxxx
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="cursadas-capturar-nota">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Filosofía
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Matemáticas
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Acordeon NOTAS FIN -->
+
+        <!-- Captura de NOTAS -->
+        <div class="cursadas-capturar-nota" id="divCapturarNota">
             <div class="capturar-nota-titulo">
                 <h2>Capturar Nota</h2>
             </div>
             <div class="capturar-nota-forma">
                 <div class="row fila-capturar-nota">
-                    <div class="col">
+                    <div class="col" id="comboboxCursadas">
                         <label for="formGroupExampleInput" class="form-label">Seleccione la Cursada</label>
                         <select class="form-select" aria-label="Cursadas ...">
                             <option selected>Cursada ...</option>
@@ -188,7 +132,7 @@
                             <option value="CIE">Ciencias</option>
                         </select>
                     </div>
-                    <div class="col">
+                    <div class="col" id="comboboxAlumnos">
                         <label for="formGroupExampleInput" class="form-label">Seleccione el Alumno</label>
                         <select class="form-select" aria-label="Alumnos ...">
                             <option selected>Alumno ...</option>
@@ -201,7 +145,7 @@
                 <div class="row fila-capturar-nota">
                     <div class="col">
                         <label for="formGroupExampleInput" class="form-label">Cuál Nota va a grabar</label>
-                        <select class="form-select" aria-label="Posibles notas ...">
+                        <select class="form-select" aria-label="Posibles notas ..." id="cualNota">
                             <option selected>Nota ...</option>
                             <option value="1">Nota 1</option>
                             <option value="2">Nota 2</option>
@@ -210,10 +154,10 @@
                     </div>
                     <div class="col">
                         <label for="formGroupExampleInput" class="form-label">Digite la Nota del Alumno</label>
-                        <input type="text" class="form-control" placeholder="Número entre 0 y 10" aria-label="Last name">
+                        <input type="text" class="form-control" placeholder="Número entre 0 y 10" aria-label="Last name" id="vrNota">
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary guardar-capturar-nota">Grabar Nota</button>
+                <button type="button" class="btn btn-primary" id="botonGuardarNota">Grabar Nota</button>
             </div>
         </div>
     </div>
@@ -223,6 +167,37 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
     <!-- script BOOSTRAP FIN -->
+    <!-- Sweetalert2 INI -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+    <!-- Sweetalert2 FIN -->
     <script src="cursadas.js"></script>
 </body>
 </html>
+<!-- 
+<table class="table table-success table-striped m-2">
+    <thead>
+        <tr>
+            <th scope="col">Alumno</th>
+            <th scope="col">Nota 1</th>
+            <th scope="col">Nota 2</th>
+            <th scope="col">Nota 3</th>
+            <th scope="col">Aprobado?</th>
+        </tr>
+    </thead>
+    <tbody id="tabla-cursadas">
+        <tr>
+            <th scope="row">Pedro</th>
+            <td>8.5</td>
+            <td>6.7</td>
+            <td>9</td>
+            <td>SI</td>
+        </tr>
+        <tr>
+            <th scope="row">María</th>
+            <td>8.5</td>
+            <td>6.7</td>
+            <td>9</td>
+            <td>NO</td>
+        </tr>
+    </tbody>
+</table> -->
