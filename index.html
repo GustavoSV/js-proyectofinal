@@ -54,45 +54,15 @@
     </nav>
     <!-- Barra de navegación FIN -->
 
-    <!-- Modal Login INI -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="loginModalLabel">Ingreso a MyLS</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="usuarioNombre" class="col-form-label">Nombre Usuario</label>
-                            <input type="text" class="form-control" id="usuarioNombre">
-                        </div>
-                        <div class="mb-3">
-                            <label for="usuarioClave" class="col-form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="usuarioClave">
-                        </div>
-                    </form>
-                    <p>Los usuarios iniciales son Alumnos: Maria, Pedro, Gustavo. Profesor: Carlos.</p>
-                    <p>Contraseña para ellos: 123 🤪</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Ingresar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Login FIN -->
-
     <!-- Presentación MyLS INI -->
     <div class="container-fluid portada">
         <div class="row justify-content-center">
-            <div class="col-5">
+            <!-- <div class="col-5"> -->
                 <video width="640" height="360" autoplay>
                     <source src="./img/Colegio-video.mp4" type="video/mp4">
                 </video>
-            </div>
-            <div class="col-3">
+            <!-- </div> -->
+            <div id="parrafoMyLS">
                 <h2>MyLS es tú School</h2>
                 <p>En My Little School estamos comprometidos en ofrecerte la mejor educación para que orientes tus sueños y allanes el camino a tu gran furturo. Sabemos que tener el acompañamiento en el momento preciso y al lado de un grupo de calificados docentes será la clave para que consigas o encuentres tus propósitos. Ven, te acompañamos!</p>
             </div>
@@ -103,7 +73,7 @@
     <div class="carrusel">
         <div class="container-sm">
             <h2>Puedes aprender ...</h2>
-            <div id="carruselCursadas" class="carousel slide">
+            <div id="carruselCursadas" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner justify-content-center" id="contenidoCarrusel">
                 <!-- </div> -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#carruselCursadas" data-bs-slide="prev">

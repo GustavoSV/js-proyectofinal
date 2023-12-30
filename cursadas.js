@@ -204,7 +204,18 @@ function llenarMensaje(mensaje, texto) {
     if (mensaje == "") {
         mensaje = texto;
     } else {
-        mensaje = mensaje + "/n" + texto;
+        mensaje = mensaje + " / " + texto;
+    }
+    return mensaje;
+}
+
+function numeroDecimalValido(texto) {
+    let mensaje = "";
+    numero = parseFloat(texto);
+    if (isNaN(numero)) {
+        mensaje = "* Digite un número válido";
+    } else if (numero < 0 || numero > 10) {
+        mensaje = "* La nota es un número entre 0 y 10"
     }
     return mensaje;
 }
@@ -221,7 +232,7 @@ function validarGuardarNota(cursoNota, alumNota, cualNota, vrNota) {
     if (cualNota == "Nota ...") {
         mensaje = llenarMensaje(mensaje, "* DEBE seleccionar cuál es la Nota a grabar"); 
     }
-
+    mensaje = llenarMensaje(mensaje, numeroDecimalValido(vrNota));
 
     if (mensaje != "") {
         Swal.fire({
@@ -272,6 +283,11 @@ botonGuardarNota.onclick = () => {
                 notasxAlumno[j].nota3 = vrNota;
             }
             localStorage.setItem("notasxAlumnoLS", JSON.stringify(notasxAlumno));
+            Swal.fire({
+                title: "Felicitaciones",
+                text: "Se ha grabado correctamente la nota",
+                icon: "success"
+            });
             cargarAcordeonNotas();
         } else {
             // ERROR no se encontró el alumno en la cursada

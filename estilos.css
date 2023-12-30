@@ -5,7 +5,8 @@
 }
 
 .usuarioLogin {
-    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: white;
     color: blue;
 }
@@ -13,6 +14,15 @@
 .portada {
     padding: 20px;
     background-color: #f0f8ff;
+}
+#parrafoMyLS {
+    display: flex;
+    flex-direction: column;
+    width: 80vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
 }
 
 .carrusel {
@@ -137,6 +147,10 @@
 }
 
 /* LOGIN */
+#encabezadoLogin {
+    display: flex;
+    justify-content: center;
+}
 
 .bodyLogin {
     display: flex;
@@ -146,8 +160,8 @@
 
 .formularioLogin {
     padding: 20px;
-    height: 430px;
-    width: 80vh;
+    height: 400px;
+    width: 90vh;
     max-width: 600px;
     background-color: antiquewhite;
 }
@@ -171,4 +185,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#botonGrabarUsuario {
+    margin-top: 20px;
 }

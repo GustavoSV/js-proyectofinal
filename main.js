@@ -134,24 +134,24 @@ let contenidoCarrusel = document.getElementById("contenidoCarrusel");
 let i = 0;
 for (const curso of cursadasOrden) {
     let fila = document.createElement("div");
-    if (i === 0) {
+    if (i == 0) {
         fila.innerHTML = 
-        `<div class="carousel-item active">
-        <img src="${curso.imagen}" class="d-block w-100" alt="${curso.contenido}">
-        <div class="carousel-caption d-none d-md-block">
-        <h3 class="${curso.colorTexto}">${curso.nombreCursada}</h3>
-        <p class="${curso.colorTexto}">${curso.contenido}</p>
-        </div>
+        `<div class="carousel-item active" data-bs-interval="2000">
+            <img src="${curso.imagen}" class="d-block w-100" alt="${curso.contenido}">
+            <div class="carousel-caption d-none d-md-block">
+                <h3 class="${curso.colorTexto}">${curso.nombreCursada}</h3>
+                <p class="${curso.colorTexto}">${curso.contenido}</p>
+            </div>
         </div>`;
         i ++;
     } else {
         fila.innerHTML = 
-        `<div class="carousel-item">
-        <img src="${curso.imagen}" class="d-block w-100" alt="${curso.contenido}">
-        <div class="carousel-caption d-none d-md-block">
-        <h3 class="${curso.colorTexto}">${curso.nombreCursada}</h3>
-        <p class="${curso.colorTexto}">${curso.contenido}</p>
-        </div>
+        `<div class="carousel-item" data-bs-interval="5000">
+            <img src="${curso.imagen}" class="d-block w-100" alt="${curso.contenido}">
+            <div class="carousel-caption d-none d-md-block">
+                <h3 class="${curso.colorTexto}">${curso.nombreCursada}</h3>
+                <p class="${curso.colorTexto}">${curso.contenido}</p>
+            </div>
         </div>`;
     }
     contenidoCarrusel.appendChild(fila);
