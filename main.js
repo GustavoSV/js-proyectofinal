@@ -51,23 +51,23 @@ if (alumnosLS) {
     [
         {
             "idAlumno": 1,
-            "nombreAlumno": "Juan",
-            "sexo": "M",
-            "edad": 20,
+            "nombreAlumno": "Blanca",
+            "sexo": "F",
+            "edad": 15,
             "contraseña": "123"
         },
         {
             "idAlumno": 2,
-            "nombreAlumno": "Maria",
-            "sexo": "F",
+            "nombreAlumno": "Camilo",
+            "sexo": "M",
             "edad": 23,
             "contraseña": "123"
         },
         {
             "idAlumno": 3,
-            "nombreAlumno": "Gustavo",
+            "nombreAlumno": "Juanpa",
             "sexo": "M",
-            "edad": 27,
+            "edad": 18,
             "contraseña": "123"
         }
     ];
@@ -83,7 +83,7 @@ if (profesoresLS) {
     [
         {
             "idProfesor": 1,
-            "nombreProfesor": "Carlos",
+            "nombreProfesor": "Gustavo",
             "contraseña": "123"
         }
     ];
